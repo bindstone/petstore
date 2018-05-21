@@ -1,0 +1,15 @@
+= PET STORE
+
+== INTRODUCTION
+This is a POC application based on Polymer (3.0), based on the API http://petstore.swagger.io
+
+== LINKS
+https://www.polymer-project.org/3.0/docs/devguide/feature-overview
+
+https://github.com/material-components/material-components-web-components
+
+http://petstore.swagger.io
+
+== Resources
+https://www.webcomponents.org/
+
