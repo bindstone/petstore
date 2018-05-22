@@ -1,5 +1,6 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-ajax/iron-ajax.js';
+import '@polymer/iron-list/iron-list.js';
 import '@polymer/iron-ajax';
 import './shared-styles.js';
 import '@material/mwc-chips';
@@ -24,7 +25,8 @@ class PsPetList extends PolymerElement {
            margin: 1px;
         }
         .selected-pet {
-           background: aqua; 
+           color: #fff;
+           background: var(--app-primary-color); 
         }
       </style>
 
@@ -35,12 +37,14 @@ class PsPetList extends PolymerElement {
         last-response="{{petList}}">    
       </iron-ajax> 
       <div class="card container-status">
-        <template is="dom-repeat" items="{{petList}}">
-        <div class$="[[_styleSelectedPet(item)]]" on-click="_selectPet">
-            <span>[[item.name]]</span>
-        </div>
+      
+      <iron-list items="[[petList]]" as="item" selected-items="{{pet}}" selection-enabled>
+        <template>
+          <div tabindex$="[[tabIndex]]" class$="[[_styleSelectedPet(selected)]]">
+            [[item.name]]
+          </div>
         </template>
-      </div>
+      </iron-list>
     `;
     }
 
@@ -73,8 +77,8 @@ class PsPetList extends PolymerElement {
         this.pet = event.model.item;
     }
 
-    _styleSelectedPet(pet) {
-        if (pet === this.pet) {
+    _styleSelectedPet(selected) {
+        if (selected) {
             return 'selected-pet'
         }
         return '';
