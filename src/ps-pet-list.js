@@ -2,8 +2,9 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-list/iron-list.js';
 import '@polymer/iron-ajax';
-import './shared-styles.js';
 import '@material/mwc-chips';
+import './shared-styles.js';
+import './ps-pet-delete'
 
 class PsPetList extends PolymerElement {
 
@@ -41,7 +42,7 @@ class PsPetList extends PolymerElement {
       <iron-list items="[[petList]]" as="item" selected-items="{{pet}}" selection-enabled>
         <template>
           <div tabindex$="[[tabIndex]]" class$="[[_styleSelectedPet(selected)]]">
-            [[item.name]]
+            [[item.name]]<ps-pet-delete disabled="true" pet="{{item}}"></ps-pet-delete>
           </div>
         </template>
       </iron-list>

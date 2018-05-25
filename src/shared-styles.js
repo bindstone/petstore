@@ -30,6 +30,13 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         color: #212121;
         font-size: 22px;
       }
+      
+      paper-icon-button[disabled] {
+        color: lightgray;
+      }
+      .ps-not-allow {
+        cursor: not-allowed;
+      }
     </style>
   </template>
 </dom-module>`;

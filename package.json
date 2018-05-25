@@ -16,15 +16,15 @@
     "ncu:upgrade": "ncu --packageFile package.json -a"
   },
   "dependencies": {
-    "@material/mwc-radio": "^0.1.1",
     "@material/mwc-chips": "file:local_modules/chips/",
     "@polymer/app-layout": "^3.0.0-pre.19",
     "@polymer/app-route": "^3.0.0-pre.19",
     "@polymer/iron-ajax": "^3.0.0-pre.19",
-    "@polymer/iron-list": "^3.0.0-pre.19",
     "@polymer/iron-flex-layout": "^3.0.0-pre.19",
+    "@polymer/iron-icon": "^3.0.0-pre.19",
     "@polymer/iron-icons": "^3.0.0-pre.19",
     "@polymer/iron-iconset-svg": "^3.0.0-pre.19",
+    "@polymer/iron-list": "^3.0.0-pre.19",
     "@polymer/iron-media-query": "^3.0.0-pre.19",
     "@polymer/iron-pages": "^3.0.0-pre.19",
     "@polymer/iron-selector": "^3.0.0-pre.19",
@@ -33,8 +33,9 @@
     "@webcomponents/webcomponentsjs": "^2.0.0"
   },
   "devDependencies": {
-    "polymer-cli": "^1.7.1",
-    "wct-browser-legacy": "^1.0.0"
+    "polymer-cli": "^1.7.2",
+    "wct-browser-legacy": "^1.0.1",
+    "npm-check-updates": "^2.14.2"
   },
   "engines": {
     "node": ">=8.0"

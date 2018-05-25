@@ -1,10 +1,11 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@polymer/iron-ajax';
+import '@polymer/paper-icon-button';
+import '@polymer/iron-icons/iron-icons';
 import './shared-styles.js';
-import '@material/mwc-chips';
 
-class PsPetList extends PolymerElement {
+class PsPetDelete extends PolymerElement {
 
     constructor() {
         super();
@@ -15,21 +16,10 @@ class PsPetList extends PolymerElement {
     static get template() {
         return html`
       <style include="shared-styles">
-      </style>
-
-      <iron-ajax id="ajaxPetList"
-        url="[[_petListUrl]]"
-        auto method="get" handle-as="json"
-        on-response="_prePetList"
-        last-response="{{petList}}">    
-      </iron-ajax> 
-      <div class="card container-status">
-        <template is="dom-repeat" items="{{petList}}">
-        <div class$="[[_styleSelectedPet(item)]]" on-click="_selectPet">
-            <span>[[item.name]]</span>
-        </div>
-        </template>
-      </div>
+      </style>     
+      <span class$="[[_getDisabledClass()]]">
+        <paper-icon-button icon="delete" disabled="[[disabled]]"></paper-icon-button>
+      </span>
     `;
     }
 
@@ -38,14 +28,22 @@ class PsPetList extends PolymerElement {
             pet: {
                 type: Object,
                 notify: true
+            },
+            disabled: {
+                type: Boolean,
+                value: false,
+                notify: true
             }
         };
     }
 
+    _getDisabledClass() {
+        return this.disabled ? 'ps-not-allow' : '';
+    }
 
     ready() {
         super.ready();
     }
 }
 
-window.customElements.define('ps-pet-list', PsPetList);
+window.customElements.define('ps-pet-delete', PsPetDelete);

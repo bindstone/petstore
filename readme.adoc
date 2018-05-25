@@ -13,3 +13,6 @@ http://petstore.swagger.io
 == Resources
 https://www.webcomponents.org/
 
+https://custom-elements-everywhere.com/
+
+https://elements.polymer-project.org/bower_components/iron-icons/demo/index.html
