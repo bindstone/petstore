@@ -16,7 +16,7 @@ class PsShop extends PolymerElement {
       </style>
 
       <div class="card">
-        <ps-status-list chag="_changeStatus" status="{{status}}"></ps-status-list>
+        <ps-status-list status="{{status}}"></ps-status-list>
       </div>
       
       <div class="card">
@@ -32,10 +32,6 @@ class PsShop extends PolymerElement {
             }
         };
     }
-
-    _changeStatus(event) {
-        console.log(event.model.item);
-    }
 }
 
-window.customElements.define('ps-view1', PsShop);
+window.customElements.define('ps-shop', PsShop);

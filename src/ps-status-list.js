@@ -59,7 +59,6 @@ class PsStatusList extends PolymerElement {
 
     _selectStatus(event) {
         this.status = event.model.item;
-        this.dispatchEvent(new CustomEvent('chag', {detail: {model: event.model.item}}));
     }
 
     _preStatusList() {

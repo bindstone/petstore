@@ -91,7 +91,7 @@ class PsApp extends PolymerElement {
           </app-header>
 
           <iron-pages selected="[[page]]" attr-for-selected="name" role="main">
-            <ps-view1 name="shop"></ps-view1>
+            <ps-shop name="shop"></ps-shop>
             <ps-view2 name="user"></ps-view2>
             <ps-view404 name="view404"></ps-view404>
           </iron-pages>

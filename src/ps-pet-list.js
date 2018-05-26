@@ -42,7 +42,7 @@ class PsPetList extends PolymerElement {
       <iron-list items="[[petList]]" as="item" selected-items="{{pet}}" selection-enabled>
         <template>
           <div tabindex$="[[tabIndex]]" class$="[[_styleSelectedPet(selected)]]">
-            [[item.name]]<ps-pet-delete disabled="true" pet="{{item}}"></ps-pet-delete>
+            [[item.name]]<ps-pet-delete pet="{{item}}" on-delete="_deletePet"></ps-pet-delete>
           </div>
         </template>
       </iron-list>
@@ -68,14 +68,8 @@ class PsPetList extends PolymerElement {
         };
     }
 
-    _selectPet(event) {
-        console.log(event);
-        //if(this._lastSelected != null) {
-        //    this._lastSelected.parentModel.classList.remove('selected-pet');
-        //}
-        //event.model.parentModel.classList.add('selected-pet');
-        //this._lastSelected = event.model;
-        this.pet = event.model.item;
+    _deletePet(event) {
+        console.log("Pet deleted...");
     }
 
     _styleSelectedPet(selected) {

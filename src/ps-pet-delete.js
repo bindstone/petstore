@@ -10,15 +10,21 @@ class PsPetDelete extends PolymerElement {
     constructor() {
         super();
         this._petListBaseUrl = 'http://petstore.swagger.io/v2/pet/findByStatus?status=';
-        this._petListUrl = ''
+        this._petListUrl = '';
+        this._cls = '';
     }
 
     static get template() {
         return html`
       <style include="shared-styles">
-      </style>     
-      <span class$="[[_getDisabledClass()]]">
-        <paper-icon-button icon="delete" disabled="[[disabled]]"></paper-icon-button>
+      </style> 
+        <iron-ajax id="ajaxPetDelete">    
+      </iron-ajax>     
+      <span class$="[[_cls]]">
+        <paper-icon-button icon="delete" 
+            disabled="[[disabled]]" 
+            on-click="_deletePet">
+        </paper-icon-button>
       </span>
     `;
     }
@@ -27,7 +33,8 @@ class PsPetDelete extends PolymerElement {
         return {
             pet: {
                 type: Object,
-                notify: true
+                notify: true,
+                observer: '_petChanged'
             },
             disabled: {
                 type: Boolean,
@@ -37,8 +44,15 @@ class PsPetDelete extends PolymerElement {
         };
     }
 
-    _getDisabledClass() {
-        return this.disabled ? 'ps-not-allow' : '';
+    _deletePet() {
+        this.disabled = true;
+        this._cls = 'ps-not-allow';
+        this.dispatchEvent(new CustomEvent('delete', {}));
+    }
+
+    _petChanged(newValue, oldValue) {
+        this.disabled = false;
+        this._cls = '';
     }
 
     ready() {
